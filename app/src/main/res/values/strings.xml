@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">CTRL+</string>
+    <string name="button">Button</string>
+    <string name="screen_share">screen share</string>
+    <string name="mouse_move">mouse_move</string>
+    <string name="activity_menu">Menu</string>
+    <string name="activity_main">Connect</string>
+    <string name="activity_scnshare">Screen share</string>
+</resources>

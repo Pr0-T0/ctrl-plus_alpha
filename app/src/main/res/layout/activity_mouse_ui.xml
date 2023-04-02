@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/gradient"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/TouchView"
+        android:layout_width="match_parent"
+        android:layout_height="641dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="90dp" />
+
+    <Button
+        android:id="@+id/rightclick"
+        android:layout_width="185dp"
+        android:layout_height="76dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="215dp"
+        android:layout_marginBottom="8dp"
+        android:text="RightClick" />
+
+    <Button
+        android:id="@+id/leftclick"
+        android:layout_width="185dp"
+        android:layout_height="76dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="9dp"
+        android:layout_marginBottom="8dp"
+        android:text="LeftClick" />
+</RelativeLayout>
