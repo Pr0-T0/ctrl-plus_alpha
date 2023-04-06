@@ -18,6 +18,9 @@ import android.widget.ImageView;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.net.Socket;
+import java.util.ArrayList;
+import java.util.List;
+
 import android.os.Bundle;
 
 public class scrnshare extends AppCompatActivity {
@@ -34,6 +37,8 @@ public class scrnshare extends AppCompatActivity {
         }
     });
     private Socket socket;
+    private List<Byte> buffer = new ArrayList<>();
+    private int expectedLength = -1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

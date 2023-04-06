@@ -31,24 +31,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         btn = (Button) findViewById(R.id.connect);
-        man = (Button) findViewById(R.id.manual);
         Toolbar toolbar = findViewById(R.id.toolbar1);
         toolbar.setTitle(R.string.activity_main);
-        man.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this,ManualConnect.class);
-                startActivity(i);
-            }
-        });
-        fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Snackbar.make(v, "If you are using a LAN connection you will have to enter IP and PORT manually", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
