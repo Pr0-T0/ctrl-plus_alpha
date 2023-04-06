@@ -2,4 +2,5 @@
 <resources>
     <string name="activity_menu">Menu</string>
     <string name="activity_main">Connect</string>
+    <string name="activity_presentation">Presentation controls</string>
 </resources>
