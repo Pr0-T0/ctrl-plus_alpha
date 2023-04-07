@@ -9,6 +9,23 @@
     android:elevation="@dimen/cardview_compat_inset_shadow"
     tools:context=".Menu">
 
+    <ImageButton
+        android:id="@+id/shortcuts"
+        android:layout_width="356dp"
+        android:layout_height="141dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/round_button"
+        android:contentDescription="@string/screen_share"
+        android:elevation="@dimen/cardview_compat_inset_shadow"
+        android:foregroundGravity="center_horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.527"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/presentation"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/scrnlogo" />
+
     <include
         android:id="@+id/toolbar"
         layout="@layout/toolbar" />
@@ -17,16 +34,15 @@
         android:id="@+id/presentation"
         android:layout_width="356dp"
         android:layout_height="141dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/round_button"
         android:contentDescription="@string/screen_share"
         android:elevation="@dimen/cardview_compat_inset_shadow"
         android:foregroundGravity="center_horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.563"
+        app:layout_constraintHorizontal_bias="0.527"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/scrnshare"
-        app:layout_constraintVertical_bias="0.036"
         app:srcCompat="@drawable/scrnlogo" />
 
     <ImageButton

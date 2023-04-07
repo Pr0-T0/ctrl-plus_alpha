@@ -25,6 +25,11 @@ public class SignalSender {
         byte[] data = createMouseData(x, y, leftButton, rightButton);
         task.execute(data);
     }
+    public static void SendShortcuts(String ip,int port,int sig){
+        Messagesender task = new Messagesender(ip,port);
+        byte[] data = SendSignal(sig);
+        task.execute(data);
+    }
 
     private static byte[] createMouseData(int x, int y, boolean leftButton, boolean rightButton) {
         ByteBuffer buffer = ByteBuffer.allocate(14);
@@ -40,5 +45,11 @@ public class SignalSender {
         buff.put((byte) 2);
         buff.putInt(code);
         return buff.array();
+    }
+    private static byte[] SendSignal(int sig){
+        ByteBuffer buffer = ByteBuffer.allocate(14);
+        buffer.putInt((byte) 3);
+        buffer.putInt(sig);
+        return buffer.array();
     }
 }

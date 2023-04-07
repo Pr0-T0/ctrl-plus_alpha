@@ -18,7 +18,7 @@ import android.widget.Toast;
 public class Menu extends AppCompatActivity {
     String ipAddress;
     int port;
-    ImageButton img,img1,img2;
+    ImageButton img,img1,img2,img3;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +36,7 @@ public class Menu extends AppCompatActivity {
         img = (ImageButton) findViewById(R.id.scrnshare);
         img1 = (ImageButton) findViewById(R.id.mouse);
         img2 = (ImageButton) findViewById(R.id.presentation);
+        img3 = findViewById(R.id.shortcuts);
         img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -54,6 +55,13 @@ public class Menu extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(Menu.this, Presentation.class);
+                startActivity(i);
+            }
+        });
+        img3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Menu.this, shortcuts.class);
                 startActivity(i);
             }
         });

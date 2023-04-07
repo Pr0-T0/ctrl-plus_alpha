@@ -6,4 +6,5 @@
     <string name="activity_menu">Menu</string>
     <string name="activity_main">Connect</string>
     <string name="activity_scnshare">Screen share</string>
+    <string name="activity_shortcuts">Shortcuts</string>
 </resources>
