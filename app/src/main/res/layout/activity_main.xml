@@ -21,9 +21,9 @@
         android:layout_marginEnd="115dp"
         android:layout_marginBottom="323dp"
         android:background="@drawable/button_mod"
-        android:text="Tap to Scan"
-        app:iconSize="100dp"
-        app:iconTint="#6100EC" />
+        app:icon="@drawable/ic_baseline_qr_code_scanner_24"
+        app:iconSize="140dp"
+        app:iconTint="#FFFEFE" />
 
     <LinearLayout
         android:layout_width="wrap_content"
