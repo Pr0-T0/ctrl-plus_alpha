@@ -22,8 +22,38 @@
         android:layout_marginBottom="323dp"
         android:background="@drawable/button_mod"
         android:text="Tap to Scan"
-        app:iconGravity="textTop"
         app:iconSize="100dp"
         app:iconTint="#6100EC" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="30dp"
+        android:layout_marginRight="30dp"
+        android:orientation="vertical">
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_two"
+            android:layout_width="wrap_content"
+            android:layout_height="70dp"
+            android:layout_margin="5dp"
+            android:src="@drawable/ic_baseline_help_center_24"
+            app:fabSize="mini" />
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_one"
+            android:layout_width="wrap_content"
+            android:layout_height="70dp"
+            android:layout_margin="5dp"
+            android:src="@drawable/ic_baseline_file_download_24"
+            app:fabSize="mini" />
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_main"
+            android:layout_width="wrap_content"
+            android:layout_height="70dp"
+            android:src="@drawable/ic_baseline_menu_open_24"
+            app:fabSize="normal" />
+    </LinearLayout>
+
 
 </RelativeLayout>
