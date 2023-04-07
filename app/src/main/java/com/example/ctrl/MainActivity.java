@@ -14,8 +14,10 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.animation.Animation;
+import android.view.animation.OvershootInterpolator;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.VideoView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -26,7 +28,10 @@ import com.journeyapps.barcodescanner.ScanOptions;
 
 public class MainActivity extends AppCompatActivity {
     Button btn;
-    FloatingActionButton fab;
+    FloatingActionButton fab_main,fab_one,fab_two;
+    Float translationYaxis = 100f;
+    boolean menuOpen = false;
+    OvershootInterpolator interpolator = new OvershootInterpolator();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         btn = (Button) findViewById(R.id.connect);
         Toolbar toolbar = findViewById(R.id.toolbar1);
         toolbar.setTitle(R.string.activity_main);
-
+        ShowMenu();
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -42,6 +47,57 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+    private void ShowMenu() {
+        fab_main = findViewById(R.id.fab_main);
+        fab_one = findViewById(R.id.fab_one);
+        fab_two = findViewById(R.id.fab_two);
+
+        fab_one.setAlpha(0f);
+        fab_two.setAlpha(0f);
+
+        fab_one.setTranslationY(translationYaxis);
+        fab_two.setTranslationY(translationYaxis);
+
+        fab_main.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(menuOpen){
+                    CloseMenu();
+                }else{
+                    OpenMenu();
+                }
+            }
+        });
+
+        fab_one.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this,"hehe boi 1",Toast.LENGTH_SHORT).show();
+            }
+        });
+        fab_two.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this,"hehe boi 2",Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void OpenMenu() {
+        menuOpen = !menuOpen;
+        fab_main.setImageResource(R.drawable.ic_baseline_menu_open_24);
+        fab_one.animate().translationY(0f).alpha(1f).setInterpolator(interpolator).setDuration(300).start();
+        fab_two.animate().translationY(0f).alpha(1f).setInterpolator(interpolator).setDuration(300).start();
+    }
+
+    private void CloseMenu() {
+        menuOpen = !menuOpen;
+        fab_main.setImageResource(R.drawable.ic_baseline_menu_open_24);
+        fab_one.animate().translationY(translationYaxis).alpha(0f).setInterpolator(interpolator).setDuration(300).start();
+        fab_two.animate().translationY(translationYaxis).alpha(0f).setInterpolator(interpolator).setDuration(300).start();
+    }
+
     private void scanCode() {
         ScanOptions options = new ScanOptions();
         options.setPrompt("Volume up to turn on flash");

@@ -39,18 +39,19 @@
             android:layout_height="70dp"
             android:layout_margin="5dp"
             android:src="@drawable/ic_baseline_help_center_24"
-            app:fabSize="mini" />
+            app:fabSize="normal" />
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab_one"
             android:layout_width="wrap_content"
             android:layout_height="70dp"
             android:layout_margin="5dp"
             android:src="@drawable/ic_baseline_file_download_24"
-            app:fabSize="mini" />
+            app:fabSize="normal" />
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab_main"
             android:layout_width="wrap_content"
             android:layout_height="70dp"
+            android:layout_margin="5dp"
             android:src="@drawable/ic_baseline_menu_open_24"
             app:fabSize="normal" />
     </LinearLayout>
