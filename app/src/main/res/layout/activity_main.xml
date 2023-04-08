@@ -22,6 +22,8 @@
         android:layout_marginBottom="323dp"
         android:background="@drawable/button_mod"
         android:focusable="true"
+        android:foregroundGravity="center"
+        android:gravity="center"
         app:icon="@drawable/ic_baseline_qr_code_scanner_24"
         app:iconSize="140dp"
         app:iconTint="#FFFEFE" />
@@ -34,19 +36,23 @@
         android:layout_marginBottom="30dp"
         android:layout_marginRight="30dp"
         android:orientation="vertical">
+
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab_two"
             android:layout_width="wrap_content"
             android:layout_height="70dp"
             android:layout_margin="5dp"
             android:src="@drawable/ic_baseline_help_center_24"
+            app:backgroundTint="#03D8C3"
             app:fabSize="normal" />
+
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab_one"
             android:layout_width="wrap_content"
             android:layout_height="70dp"
             android:layout_margin="5dp"
-            android:src="@drawable/ic_baseline_file_download_24"
+            android:src="@drawable/icons8_github"
+            app:backgroundTint="#03D8C3"
             app:fabSize="normal" />
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab_main"

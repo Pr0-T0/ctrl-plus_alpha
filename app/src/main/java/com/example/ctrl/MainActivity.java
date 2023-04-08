@@ -73,7 +73,8 @@ public class MainActivity extends AppCompatActivity {
         fab_one.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this,"hehe boi 1",Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(Intent.ACTION_VIEW,Uri.parse("https://github.com/Pr0-T0/CTRL_PLUS"));
+                startActivity(i);
             }
         });
         fab_two.setOnClickListener(new View.OnClickListener() {

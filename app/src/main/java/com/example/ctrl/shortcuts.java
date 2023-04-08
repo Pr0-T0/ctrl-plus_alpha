@@ -36,7 +36,25 @@ public class shortcuts extends AppCompatActivity {
             public void onClick(View v) {
                 //send signals
                 SignalSender.SendShortcuts(ipAddress,port,404);
-                //yeah i set the siganl to 404
+                //yeah i set the signal to 404
+            }
+        });
+        restart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SignalSender.SendShortcuts(ipAddress,port,201);
+            }
+        });
+        sleep.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SignalSender.SendShortcuts(ipAddress,port,240);
+            }
+        });
+        lock.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SignalSender.SendShortcuts(ipAddress,port,360);
             }
         });
     }

@@ -19,7 +19,7 @@
         android:layout_marginEnd="227dp"
         android:layout_marginBottom="405dp"
         android:background="@drawable/button_mod"
-        app:icon="@drawable/ic_baseline_power_settings_new_24"
+        app:icon="@drawable/ic_baseline_add_a_photo_24"
         app:iconSize="100dp"
         app:iconTint="#FFFEFE" />
 
@@ -32,7 +32,7 @@
         android:layout_marginEnd="57dp"
         android:layout_marginBottom="406dp"
         android:background="@drawable/button_mod"
-        app:icon="@drawable/ic_baseline_refresh_24"
+        app:icon="@drawable/ic_baseline_tab_24"
         app:iconSize="100dp"
         app:iconTint="#FFFEFE" />
 
@@ -45,7 +45,7 @@
         android:layout_marginEnd="227dp"
         android:layout_marginBottom="244dp"
         android:background="@drawable/button_mod"
-        app:icon="@drawable/ic_baseline_nightlight_24"
+        app:icon="@drawable/icons8_github"
         app:iconSize="100dp"
         app:iconTint="#FFFEFE" />
 

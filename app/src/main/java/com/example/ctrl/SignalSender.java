@@ -47,9 +47,9 @@ public class SignalSender {
         return buff.array();
     }
     private static byte[] SendSignal(int sig){
-        ByteBuffer buffer = ByteBuffer.allocate(14);
-        buffer.putInt((byte) 3);
-        buffer.putInt(sig);
-        return buffer.array();
+        ByteBuffer bff = ByteBuffer.allocate(14);
+        bff.put((byte) 3);
+        bff.putInt(sig);
+        return bff.array();
     }
 }
