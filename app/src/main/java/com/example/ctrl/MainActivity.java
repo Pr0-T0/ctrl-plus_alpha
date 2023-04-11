@@ -16,6 +16,7 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.OvershootInterpolator;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.VideoView;
@@ -44,6 +45,52 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 scanCode();
+            }
+        });
+        btn.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+
+                LayoutInflater inflater = getLayoutInflater();
+                View dialogView = inflater.inflate(R.layout.manual,null);
+
+                EditText ip = dialogView.findViewById(R.id.ip_edit_text);
+                EditText prt = dialogView.findViewById(R.id.port_edit_text);
+                Button set = dialogView.findViewById(R.id.set);
+                Button cancel = dialogView.findViewById(R.id.cancel);
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                builder.setView(dialogView);
+
+                AlertDialog dialog = builder.create();
+                dialog.show();
+
+                set.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        String ip_address = ip.getText().toString().trim();
+                        int pt = Integer.parseInt(prt.getText().toString());
+                        if(pt == 0){
+                            ip.setError("fields Cannot be Empty");
+                        }else{
+                            SharedPreferences preferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
+                            SharedPreferences.Editor editor = preferences.edit();
+                            editor.putString("ipAddress", ip_address);
+                            editor.putInt("port", pt);
+                            editor.apply();
+
+                            Intent i = new Intent(MainActivity.this, Menu.class);
+                            startActivity(i);
+                        }
+                    }
+                });
+                cancel.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.cancel();
+                    }
+                });
+                return true;
             }
         });
     }
@@ -80,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
         fab_two.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this,"hehe boi 2",Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this,"Make sure Both Devices are connected to the same device before scanning",Toast.LENGTH_LONG).show();
             }
         });
     }

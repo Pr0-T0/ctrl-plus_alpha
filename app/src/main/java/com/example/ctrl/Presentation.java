@@ -1,34 +1,36 @@
 package com.example.ctrl;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.annotation.SuppressLint;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
-import android.os.SystemClock;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Chronometer;
+import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.Locale;
 
 public class Presentation extends AppCompatActivity {
-    private static final long START_TIME_IN_MILLIS = 60000;
+    private  long mTimeStartInMillis;
 
     private TextView mTextViewCountDown;
     private Button mButtonReset;
 
     private CountDownTimer mCountDownTimer;
     private boolean mTimerRunning;
-    private long mTimeLeftInMillis = START_TIME_IN_MILLIS;
+    private long mTimeLeftInMillis;
 
-    Button start, left, right;
+    Button start, left, right,set;
+    TextView time;
     SharedPreferences preferences;
     String ipAddress;
     int port;
@@ -60,6 +62,52 @@ public class Presentation extends AppCompatActivity {
 
         mTextViewCountDown = findViewById(R.id.text_view_countdown);
         mButtonReset = findViewById(R.id.button_reset);
+
+        mTextViewCountDown.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Inflate the dialog layout
+                View dialogView = getLayoutInflater().inflate(R.layout.set_time, null);
+
+                // Find the EditText view in the dialog layout
+                EditText timeEditText = dialogView.findViewById(R.id.edit_text_time);
+                Button button_set = dialogView.findViewById(R.id.button_set);
+                Button button_cancel = dialogView.findViewById(R.id.button_cancel);
+                // Create the dialog and set its content view
+                AlertDialog.Builder builder = new AlertDialog.Builder(Presentation.this);
+                builder.setView(dialogView);
+
+                AlertDialog dialog = builder.create();
+                dialog.show();
+                // Add "OK" button to the dialog
+                button_set.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        // Get the time entered by the user
+                        String timeString = timeEditText.getText().toString().trim();
+                        if(timeString == null){
+                            timeEditText.setError("Cannot be Empty");
+                        }else {
+                            int timeInSeconds = Integer.parseInt(timeString) * 60;
+
+                            // Set the timer duration
+                            mTimeStartInMillis = timeInSeconds * 1000;
+                            resetTimer();
+
+                            dialog.cancel();
+                        }
+                    }
+                });
+
+                // Add "Cancel" button to the dialog
+                button_cancel.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.cancel();
+                    }
+                });
+            }
+        });
 
         Toolbar toolbar = findViewById(R.id.toolbar3);
         toolbar.setTitle(R.string.activity_presentation);
@@ -135,7 +183,7 @@ public class Presentation extends AppCompatActivity {
             }
         }.start();
         mTimerRunning = true;
-        start.setText("pause");
+        start.setText("exit");
         mButtonReset.setVisibility(View.INVISIBLE);
     }
     private void pauseTimer(){
@@ -145,7 +193,10 @@ public class Presentation extends AppCompatActivity {
         mButtonReset.setVisibility(View.VISIBLE);
     }
     private void resetTimer(){
-        mTimeLeftInMillis = START_TIME_IN_MILLIS;
+
+        mTimeLeftInMillis = mTimeStartInMillis;
+        Log.d("Presentation", "Time entered by user: " + mTimeLeftInMillis);
+
         updateCountDownText();
         mButtonReset.setVisibility(View.INVISIBLE);
     }

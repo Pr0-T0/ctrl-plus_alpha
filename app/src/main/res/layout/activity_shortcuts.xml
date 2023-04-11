@@ -58,7 +58,7 @@
         android:layout_marginEnd="57dp"
         android:layout_marginBottom="245dp"
         android:background="@drawable/button_mod"
-        app:icon="@drawable/ic_baseline_lock_24"
+        app:icon="@drawable/ic_baseline_exit_to_app_24"
         app:iconSize="100dp"
         app:iconTint="#FFFEFE" />
 

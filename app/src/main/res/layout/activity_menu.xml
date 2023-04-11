@@ -17,6 +17,7 @@
         android:background="@drawable/round_button"
         android:contentDescription="@string/screen_share"
         android:elevation="@dimen/cardview_compat_inset_shadow"
+        android:scaleType="fitCenter"
         android:foregroundGravity="center_horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -24,7 +25,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/presentation"
         app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/scrnlogo" />
+        app:srcCompat="@drawable/icon_shortcut" />
 
     <include
         android:id="@+id/toolbar"
@@ -37,13 +38,14 @@
         android:layout_marginTop="8dp"
         android:background="@drawable/round_button"
         android:contentDescription="@string/screen_share"
+        android:scaleType="fitCenter"
         android:elevation="@dimen/cardview_compat_inset_shadow"
         android:foregroundGravity="center_horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.527"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/scrnshare"
-        app:srcCompat="@drawable/scrnlogo" />
+        app:srcCompat="@drawable/icon_press" />
 
     <ImageButton
         android:id="@+id/scrnshare"
@@ -65,6 +67,7 @@
         android:id="@+id/mouse"
         android:layout_width="354dp"
         android:layout_height="140dp"
+        android:scaleType="fitCenter"
         android:background="@drawable/round_button"
         android:contentDescription="@string/mouse_move"
         android:elevation="@dimen/cardview_compat_inset_shadow"
